@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Form</title>
+  <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+
+
+  <button id="theme">Switch to Dark Mode</button>
+
+
+  <form id="userdetForm" onsubmit="SubmitData(event)">
+    <label for="name">Name:</label>
+    <input type="text" id="name">
+    <span id="nameError" class="error"></span>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email">
+    <span id="emailError" class="error"></span>
+   
+    <label for="age">Age:</label>
+    <input type="number" id="age" min="1" max="120">
+    <span id="ageError" class="error"></span>
+
+    <label for="birth">DOB:</label>
+    <input type="date" id="birth">
+   
+    <span id="birthError" class="error"></span>
+
+    <label>Gender:</label>
+    <div class="radio-group">
+      <input type="radio" name="gender" value="Male"> Male
+      <input type="radio" name="gender" value="Female"> Female
+      <input type="radio" name="gender" value="Other"> Other
+    </div>
+    <span id="genderError" class="error"></span>
+
+    <label>Hobbies:</label>
+    <div class="checkbox-group">
+      <input type="checkbox" name="hobbies" value="Reading"> Reading
+      <input type="checkbox" name="hobbies" value="Dancing"> Dancing
+      <input type="checkbox" name="hobbies" value="Coding"> Coding
+      <input type="checkbox" name="hobbies" value="Music"> Music
+    </div>
+    <span id="hobbiesError" class="error"></span>
+
+    <label for="country">Country:</label>
+    <select id="country">
+      <option value="">-- Select Country --</option>
+      <option value="USA">USA</option>
+      <option value="UK">UK</option>
+      <option value="India">India</option>
+      <option value="Canada">Canada</option>
+    </select>
+    <span id="countryError" class="error"></span>
+
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+
+
+  <div id="displayBox"></div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

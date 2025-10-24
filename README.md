@@ -24,3 +24,30 @@ Firstly i calculated the total cost by making totalCost function by fetching the
 </p>
 
 
+<h4> Javascript Day 3 <h4>
+
+<p>
+(i) Firstly i started by making basic frontend for the form using HTML and CSS.
+
+(ii)Next, I made  code for theme button for changing the theme. Theme (Dark/Light Mode)
+The code checks the saved theme from localStorage.
+If the saved theme is dark, it sets the page to dark mode and changes the button text to “Switch to Light Mode”.
+Clicking the button switches between dark and light mode and updates localStorage.
+
+(iii)Next i wrote function for name , email , age , and birth validations. which checks various validations on change like no name ,  empty name , email in wrong format ,  empty email , user cant select future date as date of birth etc.. and validated them on change.
+
+(iv)Next i made SubmitData() function for submitting the form Form Submission (DisplayData)
+Stops page from reloading on submit.
+Checks that:
+Gender is selected,At least one hobby is selected,Country is selected,If any of these are missing, shows an error and stops submission.
+Collects all input values (name, email, age, birthdate, gender, hobbies, country).
+Saves them as an object in localStorage.
+Clears the form after submission.
+Calls displayEntries() to show all saved entries.
+
+
+(v)Lastly i made DisplayEntries() function that Reads all saved entries from localStorage andShows each entry in the display box in a readable JSON format.
+
+</p>
+
+
