@@ -49,15 +49,15 @@ function validateEmail() {
   error.innerText = "";
 
 
-  let duplicate = false;
+  let sameemail = false;
   for (let i = 0; i < data1.length; i++) {
     if (data1[i].email.toLowerCase() === email.toLowerCase()) {
-      duplicate = true;
+      sameemail = true;
       break;
     }
   }
 
-  if (duplicate) {
+  if (sameemail) {
     error.innerText = "This email is already registered.";
     return;
   }

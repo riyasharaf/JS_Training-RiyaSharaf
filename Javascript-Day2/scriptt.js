@@ -12,7 +12,70 @@ fetch("https://fakestoreapi.com/products")
 
     console.log("Cart Items:", myycartt);
 
-    function showCart() {
+
+      for(let i = 0; i < products.length; i++){
+      const listt = document.createElement("li");
+      listt.innerHTML = `
+        <p><strong>${products[i].title}</strong></p>
+        <p>Price: $${products[i].price}</p>
+         <img src="${products[i].image}" width="100">
+        <button>Add to cart</button>
+      `;
+
+      const btn = listt.querySelector('button');
+
+      btn.addEventListener("click" ,()=>{
+      Addtocart(products[i].id)  
+      });
+      productList.appendChild(listt);
+
+      
+    }
+
+     function Addtocart(n1){
+      let crr = null;
+
+      
+      for (let k = 0; k < products.length; k++) {
+        if (products[k].id == n1) {
+          crr = products[k];
+          break;
+        }
+      }
+
+      if (!crr) {
+        console.log("Product is not there!");
+        return;
+      }
+
+    
+      let productisincart = false;
+
+      for (let i = 0; i < myycartt.length; i++) {
+        if (myycartt[i].id === crr.id) {
+          myycartt[i].quantity += 1;
+          productisincart = true;
+          break;
+        }
+      }
+
+
+      if (!productisincart) {
+        const newItem = {
+          id: crr.id,
+          name: crr.title,
+          price: crr.price,
+          quantity: 1,
+          image: crr.image
+        };
+        myycartt.push(newItem);
+      }
+
+      console.log("Updated Cart:", myycartt);
+ showCart();
+      }
+
+       function showCart() {
       cartdetails.innerHTML = ""; 
       for (let i = 0; i < myycartt.length; i++) {
         const cartElementt = document.createElement("li");
@@ -26,6 +89,7 @@ fetch("https://fakestoreapi.com/products")
         cartdetails.appendChild(cartElementt);
       }
     }
+
 
     function totalPrice  (){
       let total = 0;
@@ -71,25 +135,7 @@ fetch("https://fakestoreapi.com/products")
       totalPrice();
     });
 
-    for(let i = 0; i < products.length; i++){
-      const listt = document.createElement("li");
-      listt.innerHTML = `
-        <p><strong>${products[i].title}</strong></p>
-        <p>Price: $${products[i].price}</p>
-         <img src="${products[i].image}" width="100">
-        <button>Add to cart</button>
-      `;
-
-      const btn = listt.querySelector('button');
-
-      btn.addEventListener("click" ,()=>{
-      Addtocart(products[i].id)  
-      });
-      productList.appendChild(listt);
-
-      
-    }
-
+  
 
 
 
@@ -98,52 +144,7 @@ fetch("https://fakestoreapi.com/products")
 
     
 
-    function Addtocart(n1){
-      let crr = null;
-
-      
-      for (let k = 0; k < products.length; k++) {
-        if (products[k].id == n1) {
-          crr = products[k];
-          break;
-        }
-      }
-
-      if (!crr) {
-        console.log("Product is not there!");
-        return;
-      }
-
-    
-      let productisincart = false;
-
-      for (let i = 0; i < myycartt.length; i++) {
-        if (myycartt[i].id === crr.id) {
-          myycartt[i].quantity += 1;
-          productisincart = true;
-          break;
-        }
-      }
-
-
-      if (!productisincart) {
-        const newItem = {
-          id: crr.id,
-          name: crr.title,
-          price: crr.price,
-          quantity: 1,
-          image: crr.image
-        };
-        myycartt.push(newItem);
-      }
-
-      console.log("Updated Cart:", myycartt);
-    
-
-      
-    
- showCart();
-      }
+   
        
 
   });
